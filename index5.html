@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dilli 32 — Indian Speciality Restaurant | The Leela Ambience, Delhi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --cream:#f0ece4;--cream2:#e8e3d9;
+  --dark-green:#1a2b1a;--dark-green2:#162414;
+  --gold:#b8965a;--gold2:#c9a84c;
+  --text-dark:#1c1c1c;--text-mid:#555;--text-light:#888;--white:#fff;
+}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(240,236,228,0.97);border-bottom:1px solid rgba(0,0,0,.08);transition:padding .3s;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;letter-spacing:.05em;color:var(--text-dark);text-decoration:none;line-height:1;}
+.nav-logo span{display:block;font-size:.52rem;font-family:'Lato',sans-serif;font-weight:300;letter-spacing:.35em;text-transform:uppercase;color:var(--text-mid);margin-top:3px;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dark);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-phone{font-size:.72rem;color:var(--text-mid);text-decoration:none;white-space:nowrap;letter-spacing:.04em;}
+.nav-phone:hover{color:var(--gold);}
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text-dark);transition:all .3s;}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:8rem 6% 5rem;}
+.hero-bg{position:absolute;inset:0;background:url('https://www.theleela.com/prod/content/assets/aio-banner/dekstop/Dilli32_1920x950.webp') center/cover no-repeat;filter:brightness(.3);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(22,36,20,.75) 0%,rgba(22,36,20,.15) 100%);}
+.hero-content{position:relative;z-index:1;max-width:620px;}
+.hero-eyebrow{font-size:.65rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1rem;display:block;}
+.hero-script{font-family:'Dancing Script',cursive;font-size:clamp(2rem,4.5vw,3rem);color:var(--gold);margin-bottom:.3rem;line-height:1.1;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,10vw,7.5rem);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.92;letter-spacing:-.01em;margin-bottom:1.8rem;}
+.hero-desc{font-size:.95rem;line-height:1.85;color:rgba(255,255,255,.7);font-weight:300;max-width:460px;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-gold{display:inline-flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;padding:.9rem 1.8rem;background:var(--gold);color:var(--white);text-decoration:none;font-weight:700;transition:all .3s;border:2px solid var(--gold);font-family:'Lato',sans-serif;cursor:pointer;}
+.btn-gold:hover{background:transparent;color:var(--gold);}
+.btn-outline{display:inline-flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;padding:.9rem 1.8rem;background:transparent;color:var(--white);text-decoration:none;font-weight:700;transition:all .3s;border:2px solid rgba(255,255,255,.4);font-family:'Lato',sans-serif;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.btn-outline-dark{display:inline-flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;padding:.9rem 1.8rem;background:transparent;color:var(--text-dark);text-decoration:none;font-weight:700;transition:all .3s;border:2px solid var(--text-dark);font-family:'Lato',sans-serif;}
+.btn-outline-dark:hover{border-color:var(--gold);color:var(--gold);}
+.dm{color:var(--gold);font-size:.8em;}
+
+/* INTRO STRIP */
+.intro-strip{background:var(--cream2);padding:2.5rem 5%;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2.5rem;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.1);}
+.ifeat{display:flex;align-items:center;gap:.9rem;}
+.ifeat-icon{font-size:1.5rem;color:var(--gold);}
+.ifeat-text strong{display:block;font-size:.82rem;color:var(--text-dark);letter-spacing:.03em;}
+.ifeat-text{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);}
+.isep{width:1px;height:36px;background:rgba(0,0,0,.12);}
+
+/* SECTION HELPERS */
+.eyebrow{font-size:.63rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:.8rem;}
+.section-script{font-family:'Dancing Script',cursive;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--gold);display:block;margin-bottom:.3rem;line-height:1.2;}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;text-transform:uppercase;line-height:1.05;color:var(--text-dark);margin-bottom:1.5rem;}
+.section-h.white{color:var(--white);}
+.body-text{font-size:.93rem;line-height:1.9;color:var(--text-mid);font-weight:300;}
+
+/* ABOUT */
+.about{padding:6rem 5%;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto;}
+.about-img-wrap{position:relative;}
+.about-img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;}
+.about-frame{position:absolute;top:1.5rem;left:1.5rem;right:-1.5rem;bottom:-1.5rem;border:1.5px solid var(--gold);z-index:-1;}
+.about-badge{position:absolute;bottom:2rem;left:-2rem;background:var(--dark-green);padding:1.3rem 1.8rem;text-align:center;min-width:130px;}
+.about-badge-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;}
+.about-badge-l{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:.3rem;}
+.about-text{display:flex;flex-direction:column;gap:1.3rem;}
+.about-lead{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--text-dark);line-height:1.65;font-weight:400;}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:.3rem;}
+.afeat{padding:.8rem 1rem;border-left:3px solid var(--gold);background:rgba(184,150,90,.05);}
+.afeat-t{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.25rem;}
+.afeat-b{font-size:.8rem;color:var(--text-mid);line-height:1.45;}
+
+/* CUISINE */
+.cuisine{background:var(--cream2);padding:6rem 5%;}
+.cuisine-hdr{text-align:center;max-width:620px;margin:0 auto 3.5rem;}
+.cuisine-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));max-width:1200px;margin:0 auto;border:1px solid rgba(0,0,0,.09);}
+.ccard{padding:2.5rem 1.8rem;border:1px solid rgba(0,0,0,.07);text-align:center;transition:background .35s;position:relative;overflow:hidden;}
+.ccard:hover{background:var(--dark-green);}
+.ccard:hover .ctitle,.ccard:hover .ctext{color:var(--white);}
+.ccard:hover .cnum{color:rgba(255,255,255,.05);}
+.cnum{font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:rgba(0,0,0,.04);position:absolute;top:.8rem;right:1rem;line-height:1;transition:color .35s;}
+.cicon{font-size:1.9rem;margin-bottom:.9rem;color:var(--gold);}
+.ctitle{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:.6rem;transition:color .35s;}
+.ctext{font-size:.83rem;line-height:1.7;color:var(--text-mid);transition:color .35s;}
+
+/* MENU */
+.menu{padding:6rem 5%;}
+.menu-inner{max-width:1200px;margin:0 auto;}
+.menu-hdr{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem;}
+.menu-tabs{display:flex;border-bottom:1px solid rgba(0,0,0,.12);overflow-x:auto;scrollbar-width:none;margin-bottom:2.5rem;}
+.menu-tabs::-webkit-scrollbar{display:none;}
+.tab{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.75rem 1.5rem;cursor:pointer;color:var(--text-mid);border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Lato',sans-serif;font-weight:700;}
+.tab.on{color:var(--gold);border-bottom-color:var(--gold);}
+.tab:hover{color:var(--text-dark);}
+.mpanel{display:none;}
+.mpanel.on{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));border:1px solid rgba(0,0,0,.09);}
+.mitem{padding:1.4rem;border:1px solid rgba(0,0,0,.06);display:flex;gap:.8rem;align-items:flex-start;transition:background .2s;}
+.mitem:hover{background:rgba(184,150,90,.05);}
+.dot{width:8px;height:8px;border-radius:0;margin-top:5px;flex-shrink:0;}
+.veg{background:#4a7c4a;outline:1.5px solid #4a7c4a;outline-offset:2px;}
+.nonveg{background:#b03030;outline:1.5px solid #b03030;outline-offset:2px;}
+.mname{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;color:var(--text-dark);margin-bottom:.25rem;}
+.mdesc{font-size:.78rem;color:var(--text-mid);line-height:1.5;}
+.mtag{display:inline-block;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-top:.35rem;}
+
+/* STATS */
+.stats{background:var(--dark-green);padding:4rem 5%;}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);max-width:1000px;margin:0 auto;text-align:center;gap:0;}
+.sitem{padding:1rem;position:relative;}
+.sitem+.sitem::before{content:'';position:absolute;left:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.1);}
+.snum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--gold);line-height:1;}
+.slabel{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.5rem;}
+
+/* EXPERIENCE */
+.exp{padding:6rem 5%;}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto;}
+.exp-items{display:flex;flex-direction:column;gap:2rem;}
+.eitem{display:flex;gap:1.4rem;align-items:flex-start;}
+.eicon{width:50px;height:50px;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;color:var(--gold);}
+.etitle{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:.25rem;}
+.etext{font-size:.83rem;color:var(--text-mid);line-height:1.6;}
+.exp-img-wrap{position:relative;}
+.exp-img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:brightness(.85);display:block;}
+.exp-quote{position:absolute;bottom:-1.5rem;left:-2.5rem;right:2rem;background:var(--white);padding:1.7rem;border-left:4px solid var(--gold);box-shadow:0 6px 24px rgba(0,0,0,.08);}
+.exp-quote p{font-family:'Playfair Display',serif;font-size:.98rem;font-style:italic;color:var(--text-dark);line-height:1.6;margin-bottom:.4rem;}
+.exp-quote cite{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+
+/* DARK SPECIALTY */
+.specialty{background:var(--dark-green2);padding:6rem 5%;}
+.specialty-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto;}
+.spec-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(.7);display:block;}
+
+/* GALLERY */
+.gallery{padding:0;}
+.gallery-hdr{padding:5rem 5% 3rem;text-align:center;}
+.gal-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:290px 290px;gap:3px;background:#111;}
+.gi{overflow:hidden;position:relative;}
+.gi img{width:100%;height:100%;object-fit:cover;filter:brightness(.65);transition:transform .6s,filter .4s;}
+.gi:hover img{transform:scale(1.05);filter:brightness(.88);}
+.gi:first-child{grid-row:1/3;}
+.glabel{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.2rem;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:0;transition:opacity .3s;}
+.gi:hover .glabel{opacity:1;}
+
+/* RESERVATION */
+.res-section{background:var(--dark-green);padding:6rem 5%;}
+.res-inner{max-width:950px;margin:0 auto;}
+.res-top-hdr{text-align:center;margin-bottom:3.5rem;}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.res-info p{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.85;margin-bottom:1.3rem;}
+.rci{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:.9rem;}
+.rci-icon{font-size:1.1rem;color:var(--gold);flex-shrink:0;margin-top:.1rem;}
+.rci-text{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.5;}
+.rci-text a{color:var(--gold);text-decoration:none;}
+.rci-text a:hover{color:var(--white);}
+.res-form{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);}
+.rfield{background:var(--dark-green);padding:1.1rem 1.4rem;}
+.rfield label{display:block;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.4rem;}
+.rfield input,.rfield select{background:none;border:none;outline:none;font-size:.88rem;color:var(--white);font-family:'Lato',sans-serif;width:100%;font-weight:300;}
+.rfield select option{background:var(--dark-green2);}
+.rfield.full{grid-column:1/3;}
+.rsub{grid-column:1/3;background:var(--gold);border:none;padding:1.2rem;cursor:pointer;width:100%;}
+.rsub-txt{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--white);font-weight:700;font-family:'Lato',sans-serif;}
+
+/* FOOTER */
+footer{background:var(--dark-green2);padding:5rem 5% 2rem;border-top:1px solid rgba(255,255,255,.05);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;max-width:1200px;margin:0 auto;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07);}
+.fbrand-name{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--gold);}
+.fbrand-sub{font-size:.55rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem;display:block;margin-top:.2rem;}
+.fbrand p{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.8;}
+.fsocial{display:flex;gap:.7rem;margin-top:1.4rem;}
+.fsocial a{width:34px;height:34px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;transition:all .2s;font-weight:700;}
+.fsocial a:hover{border-color:var(--gold);color:var(--gold);}
+.fcol h4{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;}
+.fcol ul{list-style:none;}
+.fcol ul li{margin-bottom:.65rem;}
+.fcol ul a{font-size:.83rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;}
+.fcol ul a:hover{color:var(--white);}
+.footer-btm{max-width:1200px;margin:2rem auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-size:.72rem;color:rgba(255,255,255,.22);}
+
+/* MOBILE NAV */
+.mnav{position:fixed;inset:0;z-index:300;background:var(--dark-green2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;opacity:0;pointer-events:none;transition:opacity .35s;}
+.mnav.open{opacity:1;pointer-events:all;}
+.mnav a{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .2s;letter-spacing:.04em;}
+.mnav a:hover{color:var(--gold);}
+.mclose{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--white);font-size:1.8rem;cursor:pointer;}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .72s ease,transform .72s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links,.nav-phone{display:none;}
+  .about-grid,.exp-grid,.specialty-grid,.res-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .about-badge{left:auto;right:1rem;bottom:1rem;}
+  .exp-img-wrap{display:none;}
+  .stats-grid{grid-template-columns:repeat(3,1fr);}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px;}
+  .gi:first-child{grid-column:1/3;grid-row:1;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .fbrand{grid-column:1/3;}
+}
+@media(max-width:640px){
+  nav{padding:1rem 1.2rem;}
+  .about-feats,.res-form{grid-template-columns:1fr;}
+  .rfield.full,.rsub{grid-column:1;}
+  .mpanel.on{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .gal-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,220px);}
+  .gi:first-child{grid-column:1;grid-row:1/3;}
+  .footer-grid{grid-template-columns:1fr;}
+  .fbrand{grid-column:1;}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="mnav" id="mnav">
+  <button class="mclose" id="mclose">✕</button>
+  <a href="#about" onclick="cn()">About</a>
+  <a href="#cuisine" onclick="cn()">Cuisine</a>
+  <a href="#menu" onclick="cn()">Menu</a>
+  <a href="#experience" onclick="cn()">Experience</a>
+  <a href="#gallery" onclick="cn()">Gallery</a>
+  <a href="#reservations" onclick="cn()">Reserve</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Dilli 32<span>The Leela Ambience · Delhi</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cuisine">Cuisine</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reservations">Reserve</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+911171721234" class="nav-phone">+91 11 7172 1234</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Rare &amp; Delicious</span>
+    <div class="hero-script">A Heritage of Flavours</div>
+    <h1>Dilli<br>32</h1>
+    <p class="hero-desc">A glorious tribute to India's rich culinary heritage — where legendary Awadhi and North West Frontier flavours meet meticulous craftsmanship at The Leela Ambience, Delhi.</p>
+    <div class="hero-btns">
+      <a href="#reservations" class="btn-gold"><span class="dm">◆</span> Reserve a Table <span class="dm">◆</span></a>
+      <a href="#menu" class="btn-outline">Explore Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div class="ifeat"><span class="ifeat-icon">🕖</span><div class="ifeat-text"><strong>Dinner Only</strong>7:00 PM – 11:45 PM</div></div>
+  <div class="isep"></div>
+  <div class="ifeat"><span class="ifeat-icon">📍</span><div class="ifeat-text"><strong>Lobby Level</strong>The Leela Ambience, Delhi</div></div>
+  <div class="isep"></div>
+  <div class="ifeat"><span class="ifeat-icon">♪</span><div class="ifeat-text"><strong>Live Ghazals</strong>Every Mon &amp; Thu</div></div>
+  <div class="isep"></div>
+  <div class="ifeat"><span class="ifeat-icon">🔥</span><div class="ifeat-text"><strong>Live Kitchen</strong>Tandoors · Tawas · Handis</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-grid">
+    <div class="about-img-wrap rv">
+      <img src="https://www.theleela.com/prod/content/assets/styles/tl_377_500_webp/public/2025-08/2.jpg" alt="Dilli 32" class="about-img" onerror="this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80'">
+      <div class="about-frame"></div>
+      <div class="about-badge"><div class="about-badge-n">4.4</div><div class="about-badge-l">★ Rated · 2,200+ Reviews</div></div>
+    </div>
+    <div class="about-text rv">
+      <span class="eyebrow">Our Story</span>
+      <div class="section-script">A Princely Tradition</div>
+      <h2 class="section-h">Fine Dining<br>Recipes &amp;<br>Master Cooking</h2>
+      <p class="about-lead">"Dilli 32 transforms into a celebration of India's princely states — inviting guests to explore exquisitely crafted dishes."</p>
+      <p class="body-text">Our menu journeys through India's regal gastronomic traditions with a special focus on the delicate intricacies of Awadhi and North West Frontier cuisines. A vibrant live kitchen showcases Indian tandoors, tawas, handis and paranthas crafted with heritage and heart.</p>
+      <div class="about-feats">
+        <div class="afeat"><div class="afeat-t">Awadhi Cuisine</div><div class="afeat-b">Slow-cooked dum dishes from Lucknow's royal kitchens</div></div>
+        <div class="afeat"><div class="afeat-t">NW Frontier</div><div class="afeat-b">Bold tandoor-kissed flavours from the frontier provinces</div></div>
+        <div class="afeat"><div class="afeat-t">Live Kitchen</div><div class="afeat-b">Open kitchen theatre — watch every creation come alive</div></div>
+        <div class="afeat"><div class="afeat-t">Premium Bar</div><div class="afeat-b">Traditional Indian refreshments &amp; premium spirits</div></div>
+      </div>
+      <a href="#reservations" class="btn-gold" style="align-self:flex-start;margin-top:.5rem"><span class="dm">◆</span> Book a Table <span class="dm">◆</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CUISINE -->
+<section id="cuisine" class="cuisine">
+  <div class="cuisine-hdr rv">
+    <span class="eyebrow">Culinary Heritage</span>
+    <div class="section-script">The Traditions We Honour</div>
+    <h2 class="section-h">Various Quality<br>Specialties Made<br>With a Personal Touch</h2>
+    <p class="body-text" style="margin:0 auto;text-align:center;max-width:480px;">A menu that journeys through India's regal gastronomic traditions — each dish a portal to a different royal era.</p>
+  </div>
+  <div class="cuisine-grid">
+    <div class="ccard rv"><div class="cnum">01</div><div class="cicon">🫕</div><div class="ctitle">Awadhi Dum Cooking</div><div class="ctext">Slow-cooked sealed pot method with layered spices — the royal cuisine of Lucknow's Nawabs, preserved with reverence.</div></div>
+    <div class="ccard rv"><div class="cnum">02</div><div class="cicon">🔥</div><div class="ctitle">Tandoor Mastery</div><div class="ctext">Clay ovens fired to perfection for seekh kebabs, naans and succulent meats — the heart of NW Frontier tradition.</div></div>
+    <div class="ccard rv"><div class="cnum">03</div><div class="cicon">🌿</div><div class="ctitle">Aromatic Spice Craft</div><div class="ctext">Saffron, cardamom, rose petals and kewra — rare aromatics from across the subcontinent perfume each creation.</div></div>
+    <div class="ccard rv"><div class="cnum">04</div><div class="cicon">🥛</div><div class="ctitle">Indian Refreshments</div><div class="ctext">Thandai Saffron, Aam Ka Panna, Modinagar Shikanji — traditional recipes crafted with signature flair.</div></div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu">
+  <div class="menu-inner">
+    <div class="menu-hdr rv">
+      <div>
+        <span class="eyebrow">Bill of Fare</span>
+        <div class="section-script">Selected Offerings</div>
+        <h2 class="section-h">Our Signature Menu</h2>
+      </div>
+      <a href="https://www.theleela.com/prod/content/assets/2022-11/The-Leela-Ambience-Convention-Delhi-Dilli32-Menu.pdf" class="btn-gold" target="_blank" rel="noopener"><span class="dm">◆</span> Full Menu PDF <span class="dm">◆</span></a>
+    </div>
+    <div class="menu-tabs">
+      <button class="tab on" onclick="st('s',this)">Starters</button>
+      <button class="tab" onclick="st('m',this)">Main Course</button>
+      <button class="tab" onclick="st('b',this)">Breads &amp; Rice</button>
+      <button class="tab" onclick="st('d',this)">Desserts</button>
+      <button class="tab" onclick="st('v',this)">Beverages</button>
+    </div>
+    <!-- Starters -->
+    <div id="ps" class="mpanel on">
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Kachi Mirch Ka Paneer</div><div class="mdesc">Cottage cheese in green peppercorn marinade, chargrilled in the tandoor</div><span class="mtag">◆ Popular</span></div></div>
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Murgh Seekh Dilli 32</div><div class="mdesc">Minced chicken kebabs with chef's secret spice blend</div><span class="mtag">◆ Signature</span></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Gucchi Zafrani</div><div class="mdesc">Rare morel mushrooms in delicate saffron marinade, tandoor-finished</div><span class="mtag">◆ Chef's Special</span></div></div>
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Moong Ki Shammi</div><div class="mdesc">Delicate mung lentil patties with aromatic spices and herb chutney</div><span class="mtag">◆ Heritage</span></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Paneer Tikka Nawabi</div><div class="mdesc">Saffron-marinated paneer with Lucknowi spices, slow-cooked in tandoor</div></div></div>
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Murgh Malai Kebab</div><div class="mdesc">Tender chicken in cream and cheese marinade — melt-in-your-mouth</div></div></div>
+    </div>
+    <!-- Mains -->
+    <div id="pm" class="mpanel">
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Dilli 32 Raan-E-Sikander</div><div class="mdesc">Whole leg of lamb marinated overnight, slow-roasted to imperial perfection</div><span class="mtag">◆ Signature</span></div></div>
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Mutton Shahi Galawat</div><div class="mdesc">The legendary galouti — minced mutton with 150 spices, melt-in-mouth</div><span class="mtag">◆ Heritage</span></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Dal Dilli 32</div><div class="mdesc">Black lentils slow-cooked overnight with tomatoes, cream and secret spices</div><span class="mtag">◆ Must Try</span></div></div>
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Dum Gosht Biryani</div><div class="mdesc">Aged Basmati with tender mutton, sealed dum — a royal Awadhi tradition</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Shahi Paneer</div><div class="mdesc">Cottage cheese in velvety tomato and cashew gravy with cardamom</div></div></div>
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Murgh Dum Pukht</div><div class="mdesc">Whole chicken marinated and slow-cooked dum style in an earthen pot</div></div></div>
+    </div>
+    <!-- Breads -->
+    <div id="pb" class="mpanel">
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Warqi Parantha</div><div class="mdesc">Layered wheat bread with clarified butter — flaky as the pages of a book</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Roomali Roti</div><div class="mdesc">Paper-thin handkerchief bread tossed on an inverted griddle</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Sheermal</div><div class="mdesc">Saffron-infused sweet flatbread from the Awadhi tradition</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Zaffrani Pulao</div><div class="mdesc">Saffron-scented basmati with whole spices and fried shallots</div></div></div>
+      <div class="mitem"><div class="dot nonveg"></div><div><div class="mname">Yakhni Pulao</div><div class="mdesc">Basmati cooked in aromatic lamb stock — a Kashmiri delicacy</div></div></div>
+    </div>
+    <!-- Desserts -->
+    <div id="pd" class="mpanel">
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Shahi Tukda</div><div class="mdesc">Bread pudding with cardamom, saffron, nuts and sweet attar — a Nawabi dessert</div><span class="mtag">◆ Popular</span></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Badam Ka Halwa</div><div class="mdesc">Slow-cooked almond pudding with saffron, cardamom and silver leaf</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Saffron Gulab Jamun</div><div class="mdesc">Soft milk-solid dumplings in a saffron-rose syrup</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Kulfi Falooda</div><div class="mdesc">Handcrafted Indian ice cream with rose-soaked vermicelli</div></div></div>
+    </div>
+    <!-- Beverages -->
+    <div id="pv" class="mpanel">
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Thandai Saffron</div><div class="mdesc">Chilled milk with saffron, dry fruits and rose petals</div><span class="mtag">◆ Signature</span></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Aam Ka Panna</div><div class="mdesc">Chargrilled raw mango with cumin and mint — a summer classic</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Modinagar Ki Masala Shikanji</div><div class="mdesc">Chilled lemon beverage with signature shikanji masala blend</div></div></div>
+      <div class="mitem"><div class="dot veg"></div><div><div class="mname">Rose Lassi</div><div class="mdesc">Thick chilled yogurt drink with rose water and cardamom</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="sitem rv"><div class="snum">14+</div><div class="slabel">Years in Business</div></div>
+    <div class="sitem rv"><div class="snum">4.4★</div><div class="slabel">Guest Rating</div></div>
+    <div class="sitem rv"><div class="snum">2,200+</div><div class="slabel">Happy Guests</div></div>
+    <div class="sitem rv"><div class="snum">50+</div><div class="slabel">Signature Dishes</div></div>
+    <div class="sitem rv"><div class="snum">7</div><div class="slabel">Days a Week</div></div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp">
+  <div class="exp-grid">
+    <div>
+      <span class="eyebrow rv">The Dilli 32 Experience</span>
+      <div class="section-script rv">Only the finest food</div>
+      <h2 class="section-h rv">Great Service<br>In Our Restaurant<br>For You To Enjoy</h2>
+      <div class="exp-items">
+        <div class="eitem rv"><div class="eicon">♪</div><div><div class="etitle">Live Ghazal Evenings</div><div class="etext">Every Monday and Thursday — soulful performances transporting you to India's golden princely era.</div></div></div>
+        <div class="eitem rv"><div class="eicon">🔥</div><div><div class="etitle">Vibrant Live Kitchen</div><div class="etext">Watch our chefs at an open kitchen — tandoors glowing, woks sizzling, handis bubbling with aromatic curries.</div></div></div>
+        <div class="eitem rv"><div class="eicon">✦</div><div><div class="etitle">Candlelight Dining</div><div class="etext">Intimate tables, warm candlelight and the most romantic flavours of India — perfect for every celebration.</div></div></div>
+        <div class="eitem rv"><div class="eicon">🏅</div><div><div class="etitle">Valet &amp; Free Wi-Fi</div><div class="etext">Valet parking, free high-speed Wi-Fi and world-class 5-star service — every detail taken care of.</div></div></div>
+      </div>
+    </div>
+    <div class="exp-img-wrap rv">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Dilli 32 Ambiance" class="exp-img">
+      <div class="exp-quote">
+        <p>"Each creation is a masterclass in heritage, thoughtfully prepared to evoke both nostalgia and discovery."</p>
+        <cite>— The Leela Ambience Convention Hotel</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DARK SPECIALTY -->
+<section class="specialty">
+  <div class="specialty-grid">
+    <div class="rv">
+      <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=700&q=80" alt="Signature Dish" class="spec-img">
+    </div>
+    <div class="rv">
+      <span class="eyebrow" style="color:var(--gold)">Extraordinary</span>
+      <div class="section-script" style="color:var(--gold)">Introducing the Specialty</div>
+      <h2 class="section-h white">Special Taste<br>And The Best<br>Quality Meals</h2>
+      <p class="body-text" style="color:rgba(255,255,255,.6);margin-bottom:2rem;">Dilli 32 invites guests to explore exquisitely crafted dishes that highlight authentic, homegrown flavours and aromatic treasures from across India's princely kingdoms.</p>
+      <a href="#menu" class="btn-gold"><span class="dm">◆</span> View Menu <span class="dm">◆</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery">
+  <div class="gallery-hdr rv">
+    <span class="eyebrow">Photo Gallery</span>
+    <div class="section-script">A Feast for the Eyes</div>
+    <h2 class="section-h">Scenes from Dilli 32</h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gi"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=900&q=80" alt="Awadhi Dum Gosht"><div class="glabel">Awadhi Dum Gosht</div></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80" alt="Live Kitchen"><div class="glabel">Live Tandoor Kitchen</div></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt="Indian Breads"><div class="glabel">Freshly Baked Breads</div></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&q=80" alt="Biryani"><div class="glabel">Royal Dum Biryani</div></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&q=80" alt="Dining Hall"><div class="glabel">Elegant Dining Hall</div></div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section id="reservations" class="res-section">
+  <div class="res-inner">
+    <div class="res-top-hdr rv">
+      <span class="eyebrow" style="color:var(--gold)">Easy Booking</span>
+      <div class="section-script" style="color:var(--gold)">Claim Your Table Tonight</div>
+      <h2 class="section-h white" style="font-size:clamp(2.5rem,6vw,4rem)">Reservations</h2>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.5);max-width:480px;margin:.6rem auto 0;line-height:1.8;">Simply connect with us and our team will confirm your booking promptly. No visit to Dilli 32 is too ordinary to be extraordinary.</p>
+    </div>
+    <div class="res-grid rv">
+      <div class="res-info">
+        <p>Allow us the honour of welcoming you to Dilli 32. Whether an intimate dinner or a grand celebration, our team awaits to craft an unforgettable evening.</p>
+        <div class="rci"><span class="rci-icon">📞</span><div class="rci-text"><a href="tel:+911171721234">+91 11 7172 1234</a></div></div>
+        <div class="rci"><span class="rci-icon">✉</span><div class="rci-text"><a href="mailto:dilli32.TLACH@theleela.com">dilli32.TLACH@theleela.com</a></div></div>
+        <div class="rci"><span class="rci-icon">📍</span><div class="rci-text">Lobby Level, 1 CBD, Maharaja Surajmal Marg,<br>Near Yamuna Sports Complex, Shahdara, Delhi 110032</div></div>
+        <div class="rci"><span class="rci-icon">🕖</span><div class="rci-text">Open Daily · 7:00 PM – 11:45 PM</div></div>
+        <div class="rci"><span class="rci-icon">🎵</span><div class="rci-text">Live Ghazal Performances every Monday &amp; Thursday</div></div>
+      </div>
+      <div class="res-form">
+        <div class="rfield"><label>Event Date</label><input type="date"></div>
+        <div class="rfield"><label>Event Time</label><input type="time" value="19:00"></div>
+        <div class="rfield"><label>Guests</label><input type="number" placeholder="2" min="1" max="20"></div>
+        <div class="rfield"><label>Occasion</label><select><option>Dinner</option><option>Birthday</option><option>Anniversary</option><option>Business Dinner</option><option>Other</option></select></div>
+        <div class="rfield full"><label>Contact Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="rfield full"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <button class="rsub" onclick="alert('Thank you! We will confirm your reservation shortly. You can also call +91 11 7172 1234 directly.')">
+          <div class="rsub-txt"><span class="dm">◆</span> &nbsp;Confirm Reservation&nbsp; <span class="dm">◆</span></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fbrand">
+      <div class="fbrand-name">Dilli 32</div>
+      <span class="fbrand-sub">The Leela Ambience Convention Hotel · Delhi</span>
+      <p>A glorious tribute to India's rich culinary heritage. Celebrating the flavours of India's princely states, one plate at a time. Open daily for dinner only.</p>
+      <div class="fsocial">
+        <a href="https://www.instagram.com/theleela/" target="_blank" rel="noopener">Ig</a>
+        <a href="https://www.facebook.com/theleela" target="_blank" rel="noopener">Fb</a>
+        <a href="https://x.com/theleelahotels" target="_blank" rel="noopener">𝕏</a>
+        <a href="https://www.youtube.com/user/LeelaHotelsOfficial" target="_blank" rel="noopener">Yt</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">About Dilli 32</a></li>
+        <li><a href="#cuisine">Our Cuisine</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#experience">Experiences</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Contact &amp; Hours</h4>
+      <ul>
+        <li><a href="#">Lobby Level, The Leela Ambience</a></li>
+        <li><a href="#">1 CBD, Maharaja Surajmal Marg</a></li>
+        <li><a href="#">Near Yamuna Sports Complex</a></li>
+        <li><a href="#">Shahdara, Delhi — 110032</a></li>
+        <li><a href="tel:+911171721234">+91 11 7172 1234</a></li>
+        <li><a href="mailto:dilli32.TLACH@theleela.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <span>© 2026 Dilli 32 · The Leela Palaces, Hotels and Resorts. All Rights Reserved.</span>
+    <span>Dinner Only · 7:00 PM – 11:45 PM · Open Daily</span>
+  </div>
+</footer>
+
+<script>
+// Hamburger / mobile nav
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mnav').classList.add('open'));
+document.getElementById('mclose').addEventListener('click',cn);
+function cn(){document.getElementById('mnav').classList.remove('open');}
+
+// Menu tabs
+const panels={s:'ps',m:'pm',b:'pb',d:'pd',v:'pv'};
+function st(key,btn){
+  document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(panels[key]).classList.add('on');
+  btn.classList.add('on');
+}
+
+// Scroll reveal
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Nav shrink
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.padding=scrollY>60?'.8rem 2.5rem':'1.2rem 2.5rem';
+});
+</script>
+</body>
+</html>
